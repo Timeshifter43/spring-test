@@ -9,10 +9,12 @@ public class Message {
 
     private String text;
     private String tag;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User author;
 
+    private String filename;
 
     public Message() {
     }
@@ -23,7 +25,7 @@ public class Message {
         this.tag = tag;
     }
 
-    public String getAuthorName(){
+    public String getAuthorName() {
         return author != null ? author.getUsername() : "<none>";
     }
 
@@ -57,5 +59,13 @@ public class Message {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 }
